@@ -13,7 +13,7 @@ class Crawler(Thread):
         print(os.getcwd())
         os.chdir('C:\\Users\sunny ahmed\Desktop\Web on mind\WebSpider')
         print(os.getcwd())
-        os.system('scrapy crawl ps4bot && scrapy crawl shoebot')
+        os.system('scrapy crawl ps4bot')
 
 
 class Root(QWidget, Thread):
@@ -50,7 +50,7 @@ class Root(QWidget, Thread):
         # THREAD 2
         counter = 0
         while counter < 100:
-            counter += 0.000001
+            counter += 0.00001
             self.bar.setValue(counter)
 
     def run_processes(self):

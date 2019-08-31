@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04cdfe40-d604-4f09-a65a-f4de498efe35" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Design_and_Work/home.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Design_and_Work/start_process.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Design_and_Work/product_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebSpider/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/WebSpider/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Design_and_Work/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/Design_and_Work/home.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Design_and_Work/start_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/Design_and_Work/start_process.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,72 +18,70 @@
     <session id="2040578868">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.46" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="16" />
+          <entry key="py" value="18" />
           <entry key="pyi" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="16" />
+          <entry key="Python" value="18" />
           <entry key="PythonStub" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="5249" />
+          <entry key="py" value="12029" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="5249" />
+          <entry key="Python" value="12029" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebSpider/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Design_and_Work/start_process.py">
+        <entry file="file://$PROJECT_DIR$/Design_and_Work/home.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+            <state relative-caret-position="-1888">
+              <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
               <folding>
-                <element signature="e#0#76#0" expanded="true" />
-                <marker date="1567186141555" expanded="true" signature="471:472" ph="..." />
-                <marker date="1567186141555" expanded="true" signature="1604:1623" ph="..." />
+                <element signature="e#0#98#0" expanded="true" />
+                <marker date="1567249749844" expanded="true" signature="261:266" ph="..." />
+                <marker date="1567249749844" expanded="true" signature="1147:1724" ph="..." />
+                <marker date="1567249749844" expanded="true" signature="1815:1824" ph="..." />
+                <marker date="1567249749844" expanded="true" signature="2598:2726" ph="..." />
+                <marker date="1567249749844" expanded="true" signature="2720:2726" ph="..." />
+                <marker date="1567249749844" expanded="true" signature="3537:3610" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Design_and_Work/home.py">
+        <entry file="file://$PROJECT_DIR$/Design_and_Work/product_page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+            <state relative-caret-position="100">
+              <caret line="26" column="29" lean-forward="true" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
               <folding>
-                <element signature="e#0#53#0" expanded="true" />
-                <marker date="1567183227816" expanded="true" signature="104:109" ph="..." />
+                <element signature="e#0#60#0" expanded="true" />
+                <marker date="1567249417164" expanded="true" signature="147:152" ph="..." />
+                <marker date="1567249417164" expanded="true" signature="726:732" ph="..." />
               </folding>
             </state>
           </provider>
@@ -108,8 +105,9 @@
         <option value="$PROJECT_DIR$/WebSpider/WebSpider/settings.py" />
         <option value="$PROJECT_DIR$/WebSpider/WebSpider/spiders/ps4bot.py" />
         <option value="$PROJECT_DIR$/WebSpider/test.py" />
-        <option value="$PROJECT_DIR$/Design_and_Work/home.py" />
         <option value="$PROJECT_DIR$/Design_and_Work/start_process.py" />
+        <option value="$PROJECT_DIR$/Design_and_Work/product_page.py" />
+        <option value="$PROJECT_DIR$/Design_and_Work/home.py" />
       </list>
     </option>
   </component>
@@ -136,6 +134,12 @@
               <item name="Web on mind" type="b2602c69:ProjectViewProjectNode" />
               <item name="Web on mind" type="462c0819:PsiDirectoryNode" />
               <item name="Design_and_Work" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Web on mind" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Web on mind" type="462c0819:PsiDirectoryNode" />
+              <item name="Design_and_Work" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Web on mind" type="b2602c69:ProjectViewProjectNode" />
@@ -178,7 +182,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.start_process">
+  <component name="RunManager" selected="Python.home">
     <configuration name="home" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Web on mind" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -271,8 +275,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.start_process" />
         <item itemvalue="Python.home" />
+        <item itemvalue="Python.start_process" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.ps4bot" />
       </list>
@@ -284,7 +288,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -300,11 +304,11 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -365,13 +369,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebSpider/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3/threading.pyi">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
@@ -386,25 +383,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Design_and_Work/home.py">
+    <entry file="file://$PROJECT_DIR$/Design_and_Work/start_process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        <state relative-caret-position="301">
+          <caret line="71" selection-start-line="71" selection-end-line="74" />
           <folding>
-            <element signature="e#0#53#0" expanded="true" />
-            <marker date="1567183227816" expanded="true" signature="104:109" ph="..." />
+            <element signature="e#0#76#0" expanded="true" />
+            <marker date="1567194457307" expanded="true" signature="447:448" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Design_and_Work/start_process.py">
+    <entry file="file://$PROJECT_DIR$/WebSpider/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        <state relative-caret-position="60">
+          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Design_and_Work/product_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="26" column="29" lean-forward="true" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
           <folding>
-            <element signature="e#0#76#0" expanded="true" />
-            <marker date="1567186141555" expanded="true" signature="471:472" ph="..." />
-            <marker date="1567186141555" expanded="true" signature="1604:1623" ph="..." />
+            <element signature="e#0#60#0" expanded="true" />
+            <marker date="1567249417164" expanded="true" signature="147:152" ph="..." />
+            <marker date="1567249417164" expanded="true" signature="726:732" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Design_and_Work/home.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1888">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#98#0" expanded="true" />
+            <marker date="1567249749844" expanded="true" signature="261:266" ph="..." />
+            <marker date="1567249749844" expanded="true" signature="1147:1724" ph="..." />
+            <marker date="1567249749844" expanded="true" signature="1815:1824" ph="..." />
+            <marker date="1567249749844" expanded="true" signature="2598:2726" ph="..." />
+            <marker date="1567249749844" expanded="true" signature="2720:2726" ph="..." />
+            <marker date="1567249749844" expanded="true" signature="3537:3610" ph="..." />
           </folding>
         </state>
       </provider>
