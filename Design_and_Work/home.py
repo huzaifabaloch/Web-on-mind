@@ -138,14 +138,12 @@ class Home(QMainWindow):
                 for each_game in games:
                     if product == each_game[0].lower():
                         self.product_page = ProductPage(each_game, category)
-                        self.product_page.show()
                         break
             else:
                 category = 2
                 for each_shoe in shoes:
                     if product == each_shoe[0].lower():
                         self.product_page = ProductPage(each_shoe, category)
-                        self.product_page.show()
                         break
 
 

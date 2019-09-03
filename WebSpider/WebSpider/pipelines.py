@@ -21,10 +21,10 @@ class Ps4Pipeline(object):
     def create_connection(self):
 
         self.conn = mysql.connector.connect(
-            host = 'localhost',
-            user = 'root',
-            passwd = 'abc123',
-            database = 'web_on_mind'
+            host='localhost',
+            user='root',
+            passwd='abc123',
+            database='web_on_mind'
         )
 
         self.my_cursor = self.conn.cursor()
