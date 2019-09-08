@@ -80,6 +80,7 @@ class ProductPage(QWidget):
         track_btn.clicked.connect(self.product_traction)
 
 
+# ---------------------------------------------------------------------------------
 class ProductTraction(QDialog):
     def __init__(self, product_details, category):
         super().__init__()
@@ -193,11 +194,12 @@ class ProductTraction(QDialog):
             conn.commit()
             QMessageBox.about(self, 'product track', 'Product is on tracked. We will notify you when price falls down.')
 
-
         except Exception as err:
             QMessageBox.about(self, 'error', str(err))
 
         finally:
             my_cursor.close()
             conn.close()
+
+
 

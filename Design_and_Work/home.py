@@ -4,6 +4,7 @@ from PyQt5 import QtCore
 import sys
 import mysql.connector
 from Design_and_Work.product_page import ProductPage
+from Design_and_Work.tracker import Tracker
 
 
 class Home(QMainWindow):
