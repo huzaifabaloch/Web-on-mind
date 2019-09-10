@@ -115,6 +115,8 @@ class ProductTraction(QDialog):
         self.show()
 
     def set_track(self):
+        """To show the prompt where use is setting up a target price of a product."""
+
         try:
             self.group_box = QGroupBox('Product Detail')
             self.group_box.setFont(QtGui.QFont('calibri', 12, weight=QtGui.QFont.Bold))
@@ -176,16 +178,20 @@ class ProductTraction(QDialog):
                 QMessageBox.warning(self, 'fix price', 'User price should not be greater or equal to actual price')
                 return
 
-            my_cursor = conn.cursor()
+            product_check = self.check_if_product_already_on_track_list(product_title)
+            if product_check is not None:
+                QMessageBox.warning(self, 'Product Exists', 'Product is already on tracking list.')
+                return
 
-            my_cursor.execute('SELECT COUNT(id) FROM track_tbl')
+            my_cursor = conn.cursor()
+            my_cursor.execute('SELECT id FROM track_tbl ORDER BY id DESC LIMIT 1')
             record_no = my_cursor.fetchone()
-            if record_no[0] == 0:
+            if record_no is None:
                 record_no = 1
             else:
-                record_no = record_no[0]
-                record_no += 1
+                record_no = record_no[0] + 1
 
+            print(record_no)
             print(record_no, product_title, product_actual_price, product_user_price)
 
             my_cursor.execute("""INSERT INTO track_tbl VALUES (%s, %s, %s, %s)""", (
@@ -200,6 +206,21 @@ class ProductTraction(QDialog):
         finally:
             my_cursor.close()
             conn.close()
+
+    def check_if_product_already_on_track_list(self, product_name):
+        """To check if product already on track list"""
+
+        conn = self.create_connection()
+        my_cursor = conn.cursor()
+        query = 'SELECT title FROM track_tbl WHERE title=%s'
+        my_cursor.execute(query, (product_name,))
+        result = my_cursor.fetchone()
+
+        return result
+
+
+
+
 
 
 

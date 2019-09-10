@@ -3,6 +3,8 @@ from PyQt5 import QtGui
 from PyQt5 import QtCore
 import sys
 import mysql.connector
+import time
+from multiprocessing import Process
 from Design_and_Work.product_page import ProductPage
 from Design_and_Work.tracker import Tracker
 
@@ -74,7 +76,13 @@ class Home(QMainWindow):
 
         self.get_product_name()
 
-        self.show()
+    # PROCESS 2
+    def process_check_price(self):
+        """"This is separate process that checks for price up down."""
+
+        tracker = Tracker()
+        p2 = Process(target=tracker.check_price)
+        p2.start()
 
     def create_menu_bar(self):
 
@@ -107,6 +115,10 @@ class Home(QMainWindow):
         self.search_btn = QPushButton('Search', self)
         self.search_btn.setGeometry(QtCore.QRect(300, 300, 200, 40))
         self.search_btn.clicked.connect(self.product_page)
+
+        self.btn = QPushButton('Test', self)
+        self.btn.setGeometry(QtCore.QRect(100, 300, 200, 40))
+        self.btn.clicked.connect(self.process_check_price)
 
         self.clear_btn = QPushButton('Clear', self)
         self.clear_btn.setGeometry(QtCore.QRect(500, 300, 200, 40))
@@ -148,6 +160,11 @@ class Home(QMainWindow):
                         break
 
 
-App = QApplication(sys.argv)
-root = Home()
-sys.exit(App.exec())
+if __name__ == '__main__':
+    App = QApplication(sys.argv)
+    home = Home()
+    time.sleep(0.1)
+    p1 = Process(target=home.show())
+    p1.start()
+    sys.exit(App.exec())
+
