@@ -77,24 +77,50 @@ class Home(QMainWindow):
         self.get_product_name()
 
     # PROCESS 2
-    def process_check_price(self):
+    def start_process_check_price(self):
         """"This is separate process that checks for price up down."""
 
+        # Disabling sub menu button start tracker and Enabling stop tracker sub menu.
+        self.start_tracker.setEnabled(False)
+        self.stop_tracker.setEnabled(True)
+
         tracker = Tracker()
-        p2 = Process(target=tracker.check_price)
-        p2.start()
+        # Creating a separate process to constantly check price.
+        self.p2 = Process(target=tracker.check_price)
+        # Starting the process.
+        self.p2.start()
+
+    def stop_tracking_process(self):
+        """Stop the tracker."""
+
+        self.p2.terminate()
+        self.start_tracker.setEnabled(True)
+        self.stop_tracker.setEnabled(False)
 
     def create_menu_bar(self):
 
         main_menu = self.menuBar()
+        # Sites
         site_menu = main_menu.addMenu('Sites')
-
         self.amazon = QAction(QtGui.QIcon('resources\\amazonico.ico'), 'Amazon', self)
-        site_menu.addAction(self.amazon)
         self.ebay = QAction(QtGui.QIcon('resources\\ebayico.ico'), 'Ebay', self)
-        site_menu.addAction(self.ebay)
         self.daraz = QAction('Daraz', self)
+        # Sub
+        site_menu.addAction(self.amazon)
+        site_menu.addAction(self.ebay)
         site_menu.addAction(self.daraz)
+
+        # Tracker
+        tracker = main_menu.addMenu('Tracker')
+        self.start_tracker = QAction('Start Tracker', self)
+        self.stop_tracker = QAction('Stop Tracker', self)
+        # Sub
+        tracker.addAction(self.start_tracker)
+        tracker.addAction(self.stop_tracker)
+        self.stop_tracker.setEnabled(False)
+        # Call
+        self.start_tracker.triggered.connect(self.start_process_check_price)
+        self.stop_tracker.triggered.connect(self.stop_tracking_process)
 
     def create_toolbar(self):
 
@@ -113,15 +139,11 @@ class Home(QMainWindow):
         self.search_bar.setFont(QtGui.QFont('Arial', 20))
 
         self.search_btn = QPushButton('Search', self)
-        self.search_btn.setGeometry(QtCore.QRect(300, 300, 200, 40))
+        self.search_btn.setGeometry(QtCore.QRect(250, 300, 200, 40))
         self.search_btn.clicked.connect(self.product_page)
 
-        self.btn = QPushButton('Test', self)
-        self.btn.setGeometry(QtCore.QRect(100, 300, 200, 40))
-        self.btn.clicked.connect(self.process_check_price)
-
         self.clear_btn = QPushButton('Clear', self)
-        self.clear_btn.setGeometry(QtCore.QRect(500, 300, 200, 40))
+        self.clear_btn.setGeometry(QtCore.QRect(450, 300, 200, 40))
         self.clear_btn.clicked.connect(self.clear_string)
 
     def clear_string(self):
