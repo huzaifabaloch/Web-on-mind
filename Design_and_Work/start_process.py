@@ -1,8 +1,9 @@
 from PyQt5.QtWidgets import QWidget, QApplication, QProgressBar, QPushButton
 from PyQt5.QtGui import QIcon
-from PyQt5 import QtCore
+from PyQt5 import QtCore, QtGui
 import sys
 from threading import Thread
+from multiprocessing import Process
 import os
 from Design_and_Work.home import Home
 
@@ -13,7 +14,7 @@ class Crawler(Thread):
         print(os.getcwd())
         os.chdir('C:\\Users\sunny ahmed\Desktop\Web on mind\WebSpider')
         print(os.getcwd())
-        os.system('scrapy crawl ps4bot && scrapy crawl shoebot')
+        os.system('scrapy crawl ps4bot')
 
 
 class Root(QWidget, Thread):
@@ -44,13 +45,16 @@ class Root(QWidget, Thread):
         self.bar = QProgressBar(self)
         self.bar.setGeometry(0, 170, 541, 30)
         btn = QPushButton('Load', self)
+        btn.setStyleSheet('color:#FFFFFF')
+        btn.setFont(QtGui.QFont('Arial', 10, weight=QtGui.QFont.Helvetica))
+        btn.setGeometry(QtCore.QRect(190, 130, 100, 40))
         btn.clicked.connect(self.run_processes)
 
     def run(self):
         # THREAD 2
         counter = 0
         while counter < 100:
-            counter += 0.000001
+            counter += 0.00001
             self.bar.setValue(counter)
 
     def run_processes(self):
@@ -64,8 +68,8 @@ class Root(QWidget, Thread):
         s.join()
         self.join()
 
-        self.home = Home()
-        self.home.show()
+        home = Home()
+        home.show()
         self.hide()
 
 

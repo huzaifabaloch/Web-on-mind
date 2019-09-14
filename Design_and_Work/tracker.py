@@ -8,6 +8,7 @@ from PyQt5.QtCore import QThread
 from PyQt5.QtWidgets import QDialog, QMessageBox
 from tkinter import *
 
+
 class Tracker:
     """
     It is responsible to run the web crawlers after every 1 - 2 minutes

@@ -3,15 +3,15 @@ from PyQt5 import QtGui
 from PyQt5 import QtCore
 import sys
 import mysql.connector
-import time
 from multiprocessing import Process
 from Design_and_Work.product_page import ProductPage
 from Design_and_Work.tracker import Tracker
+from Design_and_Work.tracked_items import TrackedItem
 
 
 class Home(QMainWindow):
     def __init__(self):
-        super().__init__()
+        super(Home, self).__init__()
 
         self.title = 'Web on Mind [Home]'
         self.left = 200
@@ -33,6 +33,12 @@ class Home(QMainWindow):
         )
 
         return conn
+
+
+    def show_tracked_items(self):
+        self.tracked_items = TrackedItem()
+        self.tracked_items.init_window()
+
 
     def get_product_name(self):
         """"
@@ -110,17 +116,22 @@ class Home(QMainWindow):
         site_menu.addAction(self.ebay)
         site_menu.addAction(self.daraz)
 
+        # -----------------------------------------------------
+
         # Tracker
         tracker = main_menu.addMenu('Tracker')
         self.start_tracker = QAction('Start Tracker', self)
         self.stop_tracker = QAction('Stop Tracker', self)
+        self.track_list = QAction('Show Tracked Products', self)
         # Sub
         tracker.addAction(self.start_tracker)
         tracker.addAction(self.stop_tracker)
+        tracker.addAction(self.track_list)
         self.stop_tracker.setEnabled(False)
         # Call
         self.start_tracker.triggered.connect(self.start_process_check_price)
         self.stop_tracker.triggered.connect(self.stop_tracking_process)
+        self.track_list.triggered.connect(self.show_tracked_items)
 
     def create_toolbar(self):
 
@@ -182,11 +193,16 @@ class Home(QMainWindow):
                         break
 
 
+    def start(self):
+
+        #p1 = Process(target=home.show)
+        #p1.start()
+        pass
+
+
 if __name__ == '__main__':
-    App = QApplication(sys.argv)
-    home = Home()
-    time.sleep(0.1)
-    p1 = Process(target=home.show())
-    p1.start()
-    sys.exit(App.exec())
+   App = QApplication(sys.argv)
+   home = Home()
+   home.show()
+   sys.exit(App.exec())
 
