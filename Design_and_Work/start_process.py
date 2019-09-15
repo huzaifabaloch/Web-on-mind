@@ -39,7 +39,7 @@ class Root(QWidget, Thread):
         flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint)
         self.setWindowFlags(flags)
         self.start_component()
-        self.show()
+
 
     def start_component(self):
         self.bar = QProgressBar(self)
@@ -59,20 +59,28 @@ class Root(QWidget, Thread):
 
     def run_processes(self):
         # THREAD 1
-        s = Crawler()
-        s.start()
+        #s = Crawler()
+        #s.start()
 
         # THREAD 2
         self.start()
 
-        s.join()
+        #s.join()
         self.join()
 
-        home = Home()
-        home.show()
-        self.hide()
+        self.proceed_btn()
+
+    def proceed_btn(self):
+
+        btn = QPushButton('Proceed', self)
+        btn.setStyleSheet('color:#FFFFFF')
+        btn.setFont(QtGui.QFont('Arial', 10, weight=QtGui.QFont.Helvetica))
+        btn.setGeometry(QtCore.QRect(100, 100, 100, 40))
+        #btn.clicked.connect(self.run_processes)
 
 
-App = QApplication(sys.argv)
-root = Root()
-sys.exit(App.exec())
+if __name__ == '__main__':
+    App = QApplication(sys.argv)
+    root = Root()
+    root.show()
+    sys.exit(App.exec())

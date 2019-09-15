@@ -23,6 +23,7 @@ class ProductPage(QWidget):
 
         try:
             self.setWindowTitle(self.title)
+            self.setWindowIcon(QtGui.QIcon(self.icon))
             self.setGeometry(self.left, self.top, self.width, self.height)
             self.product_layout()
             self.show()

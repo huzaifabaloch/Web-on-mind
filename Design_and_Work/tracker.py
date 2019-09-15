@@ -121,7 +121,6 @@ class Tracker:
                     self.product_deleted_prompt(each_tracked_item[0])
 
 
-
     def product_deleted_prompt(self, product_name):
         """
         The prompt when any product is removed from website by seller or web owner.

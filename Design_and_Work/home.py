@@ -11,7 +11,7 @@ from Design_and_Work.tracked_items import TrackedItem
 
 class Home(QMainWindow):
     def __init__(self):
-        super(Home, self).__init__()
+        super().__init__()
 
         self.title = 'Web on Mind [Home]'
         self.left = 200
@@ -81,6 +81,7 @@ class Home(QMainWindow):
         self.main_layout()
 
         self.get_product_name()
+        self.show()
 
     # PROCESS 2
     def start_process_check_price(self):
@@ -201,8 +202,8 @@ class Home(QMainWindow):
 
 
 if __name__ == '__main__':
-   App = QApplication(sys.argv)
-   home = Home()
-   home.show()
-   sys.exit(App.exec())
+    App = QApplication(sys.argv)
+    home = Home()
+    home.show()
+    sys.exit(App.exec())
 

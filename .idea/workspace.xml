@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04cdfe40-d604-4f09-a65a-f4de498efe35" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Design_and_Work/tracked_items.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Design_and_Work/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/Design_and_Work/home.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Design_and_Work/product_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/Design_and_Work/product_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Design_and_Work/start_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/Design_and_Work/start_process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Design_and_Work/tracked_items.py" beforeDir="false" afterPath="$PROJECT_DIR$/Design_and_Work/tracked_items.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Design_and_Work/tracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Design_and_Work/tracker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,7 +20,7 @@
     <session id="2040578868">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.20" value="1" />
@@ -32,37 +33,37 @@
           <entry key="project.open.time.46" value="1" />
           <entry key="project.open.time.47" value="1" />
           <entry key="project.open.time.49" value="1" />
-          <entry key="project.open.time.53" value="1" />
+          <entry key="project.open.time.53" value="2" />
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.63" value="1" />
           <entry key="project.open.time.76" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="20" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="ico" value="1" />
-          <entry key="py" value="41" />
+          <entry key="py" value="42" />
           <entry key="pyi" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="1" />
-          <entry key="Python" value="41" />
+          <entry key="Python" value="42" />
           <entry key="PythonStub" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="48937" />
+          <entry key="py" value="51744" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="48937" />
+          <entry key="Python" value="51744" />
         </counts>
       </usages-collector>
     </session>
@@ -72,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Design_and_Work/start_process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+            <state relative-caret-position="-19">
+              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -84,17 +85,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Design_and_Work/home.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-840">
-              <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+            <state relative-caret-position="3800">
+              <caret line="190" column="33" selection-start-line="190" selection-start-column="33" selection-end-line="190" selection-end-column="33" />
               <folding>
                 <element signature="e#0#98#0" expanded="true" />
-                <marker date="1568479431425" expanded="true" signature="395:400" ph="..." />
-                <marker date="1568479431425" expanded="true" signature="1070:1077" ph="..." />
-                <marker date="1568479431425" expanded="true" signature="1072:1077" ph="..." />
-                <marker date="1568479431425" expanded="true" signature="2909:3064" ph="..." />
-                <marker date="1568479431425" expanded="true" signature="3059:3064" ph="..." />
-                <marker date="1568479431425" expanded="true" signature="6379:6389" ph="..." />
-                <marker date="1568479431425" expanded="true" signature="6453:6456" ph="..." />
+                <marker date="1568545482470" expanded="true" signature="395:400" ph="..." />
+                <marker date="1568545482470" expanded="true" signature="1060:1067" ph="..." />
+                <marker date="1568545482470" expanded="true" signature="1062:1067" ph="..." />
+                <marker date="1568545482470" expanded="true" signature="2919:3074" ph="..." />
+                <marker date="1568545482470" expanded="true" signature="3069:3074" ph="..." />
+                <marker date="1568545482470" expanded="true" signature="6389:6399" ph="..." />
+                <marker date="1568545482470" expanded="true" signature="6463:6466" ph="..." />
               </folding>
             </state>
           </provider>
@@ -103,18 +104,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Design_and_Work/product_page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-280">
-              <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
+            <state relative-caret-position="367">
+              <caret line="219" column="21" lean-forward="true" selection-start-line="210" selection-start-column="4" selection-end-line="219" selection-end-column="21" />
               <folding>
                 <element signature="e#0#126#0" expanded="true" />
-                <marker date="1568135499735" expanded="true" signature="246:251" ph="..." />
-                <marker date="1568135499735" expanded="true" signature="604:609" ph="..." />
-                <marker date="1568135499735" expanded="true" signature="632:633" ph="..." />
-                <marker date="1568135499735" expanded="true" signature="982:1070" ph="..." />
-                <marker date="1568135499735" expanded="true" signature="1065:1070" ph="..." />
-                <marker date="1568135499735" expanded="true" signature="2876:5953" ph="..." />
-                <marker date="1568135499735" expanded="true" signature="3319:3329" ph="..." />
-                <marker date="1568135499735" expanded="true" signature="3509:3515" ph="..." />
+                <marker date="1568543995212" expanded="true" signature="246:251" ph="..." />
+                <marker date="1568543995212" expanded="true" signature="604:609" ph="..." />
+                <marker date="1568543995212" expanded="true" signature="632:633" ph="..." />
+                <marker date="1568543995212" expanded="true" signature="1037:1125" ph="..." />
+                <marker date="1568543995212" expanded="true" signature="1120:1125" ph="..." />
+                <marker date="1568543995212" expanded="true" signature="2931:6008" ph="..." />
+                <marker date="1568543995212" expanded="true" signature="3374:3384" ph="..." />
+                <marker date="1568543995212" expanded="true" signature="3564:3570" ph="..." />
               </folding>
             </state>
           </provider>
@@ -123,12 +124,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Design_and_Work/tracker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-720">
-              <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+            <state relative-caret-position="2527">
+              <caret line="150" column="32" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="32" />
               <folding>
-                <marker date="1568146029891" expanded="true" signature="214:217" ph="..." />
-                <marker date="1568146029891" expanded="true" signature="992:1025" ph="..." />
-                <marker date="1568146029891" expanded="true" signature="5433:6031" ph="..." />
+                <marker date="1568558555344" expanded="true" signature="214:217" ph="..." />
+                <marker date="1568558555344" expanded="true" signature="992:1025" ph="..." />
+                <marker date="1568558555344" expanded="true" signature="5432:6030" ph="..." />
               </folding>
             </state>
           </provider>
@@ -137,11 +138,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Design_and_Work/tracked_items.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="76" column="48" lean-forward="true" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+            <state relative-caret-position="-2262">
+              <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
               <folding>
-                <element signature="e#0#120#0" expanded="true" />
-                <marker date="1568496823273" expanded="true" signature="216:217" ph="..." />
+                <element signature="e#0#162#0" expanded="true" />
+                <marker date="1568566418748" expanded="true" signature="247:248" ph="..." />
               </folding>
             </state>
           </provider>
@@ -168,8 +169,8 @@
         <option value="$PROJECT_DIR$/WebSpider/WebSpider/pipelines.py" />
         <option value="$PROJECT_DIR$/Design_and_Work/product_page.py" />
         <option value="$PROJECT_DIR$/Design_and_Work/start_process.py" />
-        <option value="$PROJECT_DIR$/Design_and_Work/tracker.py" />
         <option value="$PROJECT_DIR$/Design_and_Work/home.py" />
+        <option value="$PROJECT_DIR$/Design_and_Work/tracker.py" />
         <option value="$PROJECT_DIR$/Design_and_Work/tracked_items.py" />
       </list>
     </option>
@@ -203,17 +204,6 @@
               <item name="Web on mind" type="462c0819:PsiDirectoryNode" />
               <item name="Design_and_Work" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Web on mind" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Web on mind" type="462c0819:PsiDirectoryNode" />
-              <item name="WebSpider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Web on mind" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Web on mind" type="462c0819:PsiDirectoryNode" />
-              <item name="WebSpider" type="462c0819:PsiDirectoryNode" />
-              <item name="WebSpider" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -486,68 +476,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Design_and_Work/start_process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+        <state relative-caret-position="-19">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Design_and_Work/tracker.py">
+    <entry file="file://$PROJECT_DIR$/Design_and_Work/home.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-720">
-          <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+        <state relative-caret-position="3800">
+          <caret line="190" column="33" selection-start-line="190" selection-start-column="33" selection-end-line="190" selection-end-column="33" />
           <folding>
-            <marker date="1568146029891" expanded="true" signature="214:217" ph="..." />
-            <marker date="1568146029891" expanded="true" signature="992:1025" ph="..." />
-            <marker date="1568146029891" expanded="true" signature="5433:6031" ph="..." />
+            <element signature="e#0#98#0" expanded="true" />
+            <marker date="1568545482470" expanded="true" signature="395:400" ph="..." />
+            <marker date="1568545482470" expanded="true" signature="1060:1067" ph="..." />
+            <marker date="1568545482470" expanded="true" signature="1062:1067" ph="..." />
+            <marker date="1568545482470" expanded="true" signature="2919:3074" ph="..." />
+            <marker date="1568545482470" expanded="true" signature="3069:3074" ph="..." />
+            <marker date="1568545482470" expanded="true" signature="6389:6399" ph="..." />
+            <marker date="1568545482470" expanded="true" signature="6463:6466" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Design_and_Work/product_page.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-280">
-          <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
+        <state relative-caret-position="367">
+          <caret line="219" column="21" lean-forward="true" selection-start-line="210" selection-start-column="4" selection-end-line="219" selection-end-column="21" />
           <folding>
             <element signature="e#0#126#0" expanded="true" />
-            <marker date="1568135499735" expanded="true" signature="246:251" ph="..." />
-            <marker date="1568135499735" expanded="true" signature="604:609" ph="..." />
-            <marker date="1568135499735" expanded="true" signature="632:633" ph="..." />
-            <marker date="1568135499735" expanded="true" signature="982:1070" ph="..." />
-            <marker date="1568135499735" expanded="true" signature="1065:1070" ph="..." />
-            <marker date="1568135499735" expanded="true" signature="2876:5953" ph="..." />
-            <marker date="1568135499735" expanded="true" signature="3319:3329" ph="..." />
-            <marker date="1568135499735" expanded="true" signature="3509:3515" ph="..." />
+            <marker date="1568543995212" expanded="true" signature="246:251" ph="..." />
+            <marker date="1568543995212" expanded="true" signature="604:609" ph="..." />
+            <marker date="1568543995212" expanded="true" signature="632:633" ph="..." />
+            <marker date="1568543995212" expanded="true" signature="1037:1125" ph="..." />
+            <marker date="1568543995212" expanded="true" signature="1120:1125" ph="..." />
+            <marker date="1568543995212" expanded="true" signature="2931:6008" ph="..." />
+            <marker date="1568543995212" expanded="true" signature="3374:3384" ph="..." />
+            <marker date="1568543995212" expanded="true" signature="3564:3570" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Design_and_Work/home.py">
+    <entry file="file://$PROJECT_DIR$/Design_and_Work/tracker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-840">
-          <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+        <state relative-caret-position="2527">
+          <caret line="150" column="32" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="32" />
           <folding>
-            <element signature="e#0#98#0" expanded="true" />
-            <marker date="1568479431425" expanded="true" signature="395:400" ph="..." />
-            <marker date="1568479431425" expanded="true" signature="1070:1077" ph="..." />
-            <marker date="1568479431425" expanded="true" signature="1072:1077" ph="..." />
-            <marker date="1568479431425" expanded="true" signature="2909:3064" ph="..." />
-            <marker date="1568479431425" expanded="true" signature="3059:3064" ph="..." />
-            <marker date="1568479431425" expanded="true" signature="6379:6389" ph="..." />
-            <marker date="1568479431425" expanded="true" signature="6453:6456" ph="..." />
+            <marker date="1568558555344" expanded="true" signature="214:217" ph="..." />
+            <marker date="1568558555344" expanded="true" signature="992:1025" ph="..." />
+            <marker date="1568558555344" expanded="true" signature="5432:6030" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Design_and_Work/tracked_items.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="76" column="48" lean-forward="true" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+        <state relative-caret-position="-2262">
+          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
           <folding>
-            <element signature="e#0#120#0" expanded="true" />
-            <marker date="1568496823273" expanded="true" signature="216:217" ph="..." />
+            <element signature="e#0#162#0" expanded="true" />
+            <marker date="1568566418748" expanded="true" signature="247:248" ph="..." />
           </folding>
         </state>
       </provider>
