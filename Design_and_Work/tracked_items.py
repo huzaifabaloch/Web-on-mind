@@ -85,6 +85,11 @@ class TrackedItem(QWidget):
         modify_btn.clicked.connect(self.modify)
         self.vbox.addWidget(modify_btn)
 
+        delete_btn = QPushButton('Remove Product', self)
+        delete_btn.setFont(QtGui.QFont('Calibri', 12))
+        delete_btn.clicked.connect(self.delete)
+        self.vbox.addWidget(delete_btn)
+
     def get_cell_item(self, row, column):
 
         print("Row %d and Column %d was clicked" % (row, column))
@@ -107,6 +112,21 @@ class TrackedItem(QWidget):
         except Exception as err:
             QMessageBox.warning(self, 'error', 'Please Select on a product name to modify.')
 
+        finally:
+            cur.close()
+            conn.close()
+
+    def delete(self):
+
+        conn = self.create_connection()
+        cur = conn.cursor()
+        try:
+            query = 'DELETE FROM track_tbl WHERE title = %s'
+            cur.execute('DELETE FROM track_tbl WHERE title = %s', (self.product_name, ))
+            conn.commit()
+            QMessageBox.warning(self, 'deleted', f"Product '{self.product_name}' deleted successfully")
+        except:
+            QMessageBox.warning(self, 'failed', 'Something went wrong while deleting.')
         finally:
             cur.close()
             conn.close()

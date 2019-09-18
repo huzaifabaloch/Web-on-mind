@@ -79,7 +79,6 @@ class Home(QMainWindow):
         self.create_menu_bar()
         self.create_toolbar()
         self.main_layout()
-
         self.get_product_name()
         self.show()
 
@@ -106,24 +105,30 @@ class Home(QMainWindow):
 
     def create_menu_bar(self):
 
+        # Menu Object
         main_menu = self.menuBar()
-        # Sites
-        site_menu = main_menu.addMenu('Sites')
-        self.amazon = QAction(QtGui.QIcon('resources\\amazonico.ico'), 'Amazon', self)
-        self.ebay = QAction(QtGui.QIcon('resources\\ebayico.ico'), 'Ebay', self)
-        self.daraz = QAction('Daraz', self)
+
+        # SITES
+        sites = main_menu.addMenu('Sites')
+        # Amazon
+        amazon = sites.addMenu(QtGui.QIcon('resources\\amazonico.ico'), 'Amazon')
         # Sub
-        site_menu.addAction(self.amazon)
-        site_menu.addAction(self.ebay)
-        site_menu.addAction(self.daraz)
+        self.ps4 = QAction(QtGui.QIcon('resources\ps4.ico'), 'Playstation 4', self)
+        amazon.addAction(self.ps4)
+
+        # Ebay
+        ebay = sites.addMenu(QtGui.QIcon('resources\ebayico.ico'), 'Ebay')
+        # Sub
+        self.phone = QAction(QtGui.QIcon('resources\smartphone.ico'), 'Smartphones', self)
+        ebay.addAction(self.phone)
 
         # -----------------------------------------------------
 
-        # Tracker
+        # TRACKER
         tracker = main_menu.addMenu('Tracker')
-        self.start_tracker = QAction('Start Tracker', self)
-        self.stop_tracker = QAction('Stop Tracker', self)
-        self.track_list = QAction('Show Tracked Products', self)
+        self.start_tracker = QAction(QtGui.QIcon('resources\starttracker.ico'), 'Start Tracker', self)
+        self.stop_tracker = QAction(QtGui.QIcon('resources\stoptracker.ico'), 'Stop Tracker', self)
+        self.track_list = QAction(QtGui.QIcon('resources\showproducts.ico'), 'Show Tracked Products', self)
         # Sub
         tracker.addAction(self.start_tracker)
         tracker.addAction(self.stop_tracker)
@@ -137,8 +142,11 @@ class Home(QMainWindow):
     def create_toolbar(self):
 
         toolbar = self.addToolBar('Toolbar')
-        toolbar.addAction(self.amazon)
-        toolbar.addAction(self.ebay)
+        toolbar.addAction(self.ps4)
+        toolbar.addAction(self.phone)
+        toolbar.addAction(self.start_tracker)
+        toolbar.addAction(self.stop_tracker)
+        toolbar.addAction(self.track_list)
 
     def main_layout(self):
 
