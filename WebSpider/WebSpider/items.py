@@ -21,6 +21,13 @@ class Ps4Item(scrapy.Item):
     price = scrapy.Field()
 
 
+class PhoneItem(scrapy.Item):
+
+    image_url = scrapy.Field()
+    name_of_phone = scrapy.Field()
+    price = scrapy.Field()
+
+
 class ShoeItem(scrapy.Item):
 
     image = scrapy.Field()
