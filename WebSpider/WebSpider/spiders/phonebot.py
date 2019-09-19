@@ -4,6 +4,13 @@ from ..items import PhoneItem
 
 class PhoneBot(scrapy.Spider):
 
+    pipelines = ['phonebot']
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'WebSpider.pipelines.PhonePipeline': 400
+        }
+    }
+
     name = 'phonebot'
     start_urls = [
         'https://www.ebay.com/b/Samsung-Cell-Phones-and-Smartphones/9355/bn_352130?rt=nc&_pgn=1'
@@ -35,6 +42,6 @@ class PhoneBot(scrapy.Spider):
             yield item
 
         next_page = 'https://www.ebay.com/b/Samsung-Cell-Phones-and-Smartphones/9355/bn_352130?rt=nc&_pgn=' + str(PhoneBot.page_number)
-        if PhoneBot.page_number < 336:
+        if PhoneBot.page_number < 20:
             PhoneBot.page_number += 1
             yield response.follow(next_page, self.parse)
