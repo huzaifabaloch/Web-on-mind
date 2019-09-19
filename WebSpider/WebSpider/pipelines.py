@@ -49,14 +49,56 @@ class Ps4Pipeline(object):
 
         self.conn.commit()
 
-    
     def process_item(self, item, spider):
-        if 'shoebot' not in ['ps4bot']:
-            self.store_data(item)
-            return item
+
+        self.store_data(item)
+        return item
 
 
+# -------------------------------------------------------------------------
+class PhonePipeline(object):
 
+    def __init__(self):
+        self.create_connection()
+        self.create_table()
+
+    def create_connection(self):
+
+        self.conn = mysql.connector.connect(
+            host='localhost',
+            user='root',
+            passwd='abc123',
+            database='web_on_mind'
+        )
+        self.cursor = self.conn.cursor()
+
+    def create_table(self):
+
+        self.cursor.execute('DROP TABLE IF EXISTS phone_tbl')
+        self.cursor.execute("""CREATE TABLE phone_tbl (
+            name_of_phone text,
+            price text,
+            image_url text
+            )
+        """)
+
+    def store_data(self, item):
+
+        self.cursor.execute("""INSERT INTO phone_tbl VALUES (%s, %s, %s)""", (
+                    item['name_of_phone'],
+                    item['price'],
+                    item['image_url']
+                )
+            )
+        self.conn.commit()
+
+    def process_item(self, item, spider):
+
+        self.store_data(item)
+        return item
+
+
+# -------------------------------------------------------------------
 class ShoePipeline(object):
     """
     To store data of shoes in some sort of database.
@@ -70,10 +112,10 @@ class ShoePipeline(object):
     def create_connection(self):
 
         self.conn = mysql.connector.connect(
-            host = 'localhost',
-            user = 'root',
-            passwd = 'abc123',
-            database = 'web_on_mind'
+            host='localhost',
+            user='root',
+            passwd='abc123',
+            database='web_on_mind'
         )
         self.my_cursor = self.conn.cursor()
 
