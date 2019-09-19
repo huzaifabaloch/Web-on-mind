@@ -47,7 +47,7 @@ class Home(QMainWindow):
         """
 
         games_name = []  # To hold game names.
-        shoes_name = []  # To hold shoe names.
+        phones_name = []  # To hold phone names.
         products = []  # To hold all category product names.
 
         conn = self.create_connection()
@@ -57,13 +57,13 @@ class Home(QMainWindow):
         for each_game in games:
             games_name.append(each_game[0].lower())
 
-        cursor.execute('SELECT name_of_shoe FROM shoes_tbl')
-        shoes = cursor.fetchall()
-        for each_shoe in shoes:
-            shoes_name.append(each_shoe[0].lower())
+        cursor.execute('SELECT name_of_phone FROM phone_tbl')
+        phones = cursor.fetchall()
+        for each_phone in phones:
+            phones_name.append(each_phone[0].lower())
 
         products.extend(games_name)
-        products.extend(shoes_name)
+        products.extend(phones_name)
 
         cursor.close()
         conn.close()
@@ -184,8 +184,8 @@ class Home(QMainWindow):
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM ps4_tbl")
         games = cursor.fetchall()
-        cursor.execute("SELECT * FROM shoes_tbl")
-        shoes = cursor.fetchall()
+        cursor.execute("SELECT * FROM phone_tbl")
+        phones = cursor.fetchall()
 
         for each_category in range(2):
             if each_category == 0:
@@ -196,9 +196,9 @@ class Home(QMainWindow):
                         break
             else:
                 category = 2
-                for each_shoe in shoes:
-                    if product == each_shoe[0].lower():
-                        self.product_page = ProductPage(each_shoe, category)
+                for each_phone in phones:
+                    if product == each_phone[0].lower():
+                        self.product_page = ProductPage(each_phone, category)
                         break
 
 
