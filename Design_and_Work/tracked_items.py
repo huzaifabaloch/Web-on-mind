@@ -219,8 +219,8 @@ class ProductModification(QWidget):
 
         try:
             product_title = self.title
-            product_actual_price = int(self.actual_price[1:])
-            product_user_price = int(self.user_price.text())
+            product_actual_price = float(self.actual_price[1:])
+            product_user_price = float(self.user_price.text())
 
             if product_user_price >= product_actual_price:
                 QMessageBox.warning(self, 'fix price', 'User price should not be greater or equal to actual price')

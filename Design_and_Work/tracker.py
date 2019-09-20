@@ -1,12 +1,10 @@
 import mysql.connector
 import time
 import os
-import threading
-import multiprocessing
 import tkinter.messagebox
-from PyQt5.QtCore import QThread
-from PyQt5.QtWidgets import QDialog, QMessageBox
 from tkinter import *
+import smtplib
+import Design_and_Work.config as credential
 
 
 class Tracker:
@@ -57,11 +55,20 @@ class Tracker:
         conn = self.create_connection()
         my_cursor = conn.cursor()
 
-        query = 'SELECT name_of_game, price FROM ps4_tbl'
-        my_cursor.execute(query)
-        result = my_cursor.fetchall()
-        for each in result:
-            items[each[0]] = each[1]
+        query1 = 'SELECT name_of_game, price FROM ps4_tbl'
+        query2 = 'SELECT name_of_phone, price FROM phone_tbl'
+        my_cursor.execute(query1)
+        ps4 = my_cursor.fetchall()
+        my_cursor.execute(query2)
+        phone = my_cursor.fetchall()
+
+        for each in range(0, 2):
+            if each == 0:
+                for each_ps4 in ps4:
+                    items[each_ps4[0]] = each_ps4[1]
+            else:
+                for each_phone in phone:
+                    items[each_phone[0]] = each_phone[1]
 
         my_cursor.close()
         conn.close()
@@ -107,8 +114,8 @@ class Tracker:
                 print(each_tracked_item)
                 for each_item in server_items.items():
                     if each_tracked_item[0] == each_item[0]:
-                        if int(each_item[1]) < int(each_tracked_item[1][0]):
-                            if int(each_item[1]) <= int(each_tracked_item[1][1]):
+                        if int(float(each_item[1])) < int(float(each_tracked_item[1][0])):
+                            if int(float(each_item[1])) <= int(float(each_tracked_item[1][1])):
                                 print('YES')
                                 # self.send_email()
                                 item_found = True
@@ -119,7 +126,6 @@ class Tracker:
 
                 if item_found is False:
                     self.product_deleted_prompt(each_tracked_item[0])
-
 
     def product_deleted_prompt(self, product_name):
         """
@@ -161,4 +167,14 @@ class Tracker:
         conn.close()
 
     def send_email(self):
-        pass
+        try:
+            server = smtplib.SMTP('smtp.gmail.com:587')
+            server.ehlo()
+            server.starttls()
+            server.login(credential.EMAIL_ADDRESS, credential.PASSWORD)
+            message = ''
+            server.sendmail(credential.EMAIL_ADDRESS, credential.EMAIL_ADDRESS, message)
+            server.quit()
+        except:
+            print('Failed')
+
