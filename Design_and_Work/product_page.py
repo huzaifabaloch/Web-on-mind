@@ -33,6 +33,7 @@ class ProductPage(QWidget):
 
     def product_traction(self):
         self.product_track = ProductTraction(self.product_details, self.category)
+        self.hide()
 
     def product_layout(self):
 
@@ -55,29 +56,59 @@ class ProductPage(QWidget):
             product_title.setFont(QtGui.QFont('Arial', 12, weight=QtGui.QFont.Bold))
 
             product_price = QLabel(self)
-            product_price.setText('$' + self.product_details[1])
-            product_price.setGeometry(400, 100, 50, 30)
-            product_price.setFont(QtGui.QFont('Arial', 20, weight=QtGui.QFont.Bold))
-            product_price.setStyleSheet('color:red')
+            track_btn = QPushButton('Track', self)
+
+            if self.product_details[1] is not None:
+                product_price.setText('$' + self.product_details[1])
+                product_price.setGeometry(400, 100, 50, 30)
+                product_price.setFont(QtGui.QFont('Arial', 20, weight=QtGui.QFont.Bold))
+                product_price.setStyleSheet('color:red')
+
+            else:
+                product_price.setText('Actual price is not set for this product.')
+                product_price.setGeometry(220, 100, 1000, 30)
+                product_price.setFont(QtGui.QFont('Arial', 10, weight=QtGui.QFont.Bold))
+                product_price.setStyleSheet('color:red')
+                track_btn.setEnabled(False)
 
             v_box.addWidget(product_title)
             v_box.addWidget(label)
             self.setLayout(v_box)
 
+            #track_btn = QPushButton('Track', self)
+            track_btn.setGeometry(330, 230, 150, 50)
+            track_btn.setFont(QtGui.QFont('Arial', 12, weight=QtGui.QFont.Bold))
+
         else:
-            url = self.product_details[3]
+            self.setFixedHeight(300)
+            url = self.product_details[2]
             data = urlopen(url).read()
             image = QtGui.QImage()
             image.loadFromData(data)
             pix = QtGui.QPixmap(image)
-            label = QLabel(self)
-            label.setPixmap(pix)
-            label.setGeometry(20, 20, 400, 300)
-            self.v_box.addWidget(label)
+            label_image = QLabel(self)
+            label_image.setPixmap(pix)
+            label_image.setGeometry(20, 20, 400, 300)
 
-        track_btn = QPushButton('Track', self)
-        track_btn.setGeometry(330, 230, 150, 50)
-        track_btn.setFont(QtGui.QFont('Arial', 12, weight=QtGui.QFont.Bold))
+            product_title = QLabel(self)
+            product_title.setText(self.product_details[0])
+            product_title.setGeometry(200, 0, 1000, 300)
+            product_title.setFont(QtGui.QFont('Arial', 12, weight=QtGui.QFont.Bold))
+
+            product_price = QLabel(self)
+            product_price.setText('$' + self.product_details[1])
+            product_price.setGeometry(385, 50, 100, 200)
+            product_price.setFont(QtGui.QFont('Arial', 20, weight=QtGui.QFont.Bold))
+            product_price.setStyleSheet('color:red')
+
+            v_box.addWidget(product_title)
+            v_box.addWidget(label_image)
+            self.setLayout(v_box)
+
+            track_btn = QPushButton('Track', self)
+            track_btn.setGeometry(350, 220, 150, 50)
+            track_btn.setFont(QtGui.QFont('Arial', 12, weight=QtGui.QFont.Bold))
+
         track_btn.clicked.connect(self.product_traction)
 
 
@@ -124,42 +155,40 @@ class ProductTraction(QDialog):
             self.group_box.setGeometry(QtCore.QRect(0, 0, 900, 200))
             grid_box = QGridLayout()
 
-            if self.category == 1:
+            # HEADERS
+            product_title_header = QLabel('Product Name', self)
+            product_price_header = QLabel('Actual Price', self)
+            product_user_price_header = QLabel('User Price', self)
+            grid_box.addWidget(product_title_header, 0, 0)
+            grid_box.addWidget(product_price_header, 0, 2)
+            grid_box.addWidget(product_user_price_header, 0, 4)
 
-                # HEADERS
-                product_title_header = QLabel('Product Name', self)
-                product_price_header = QLabel('Actual Price', self)
-                product_user_price_header = QLabel('User Price', self)
-                grid_box.addWidget(product_title_header, 0, 0)
-                grid_box.addWidget(product_price_header, 0, 2)
-                grid_box.addWidget(product_user_price_header, 0, 4)
+            # VALUES
+            product_title = QLabel(self)
+            self.title = self.product_details[0]
+            product_title.setText(self.title)
+            product_title.setFont(QtGui.QFont('Arial', 12, QtGui.QFont.Bold))
+            product_price = QLabel(self)
+            self.actual_price = '$' + self.product_details[1]
+            product_price.setText(self.actual_price)
+            product_price.setFont(QtGui.QFont('Arial', 12, QtGui.QFont.Bold))
+            product_price.setStyleSheet('color:red')
+            grid_box.addWidget(product_title, 2, 0)
+            grid_box.addWidget(product_price, 2, 2)
 
-                # VALUES
-                product_title = QLabel(self)
-                self.title = self.product_details[0]
-                product_title.setText(self.title)
-                product_title.setFont(QtGui.QFont('Arial', 12, QtGui.QFont.Bold))
-                product_price = QLabel(self)
-                self.actual_price = '$' + self.product_details[1]
-                product_price.setText(self.actual_price)
-                product_price.setFont(QtGui.QFont('Arial', 12, QtGui.QFont.Bold))
-                product_price.setStyleSheet('color:red')
-                grid_box.addWidget(product_title, 2, 0)
-                grid_box.addWidget(product_price, 2, 2)
+            self.user_price = QLineEdit(self)
+            self.user_price.setFont(QtGui.QFont('calibri, 14', weight=QtGui.QFont.Bold))
+            grid_box.addWidget(self.user_price, 2, 4)
+            self.group_box.setLayout(grid_box)
 
-                self.user_price = QLineEdit(self)
-                self.user_price.setFont(QtGui.QFont('calibri, 14', weight=QtGui.QFont.Bold))
-                grid_box.addWidget(self.user_price, 2, 4)
-                self.group_box.setLayout(grid_box)
+            start_tracking = QPushButton('Start Tracking', self)
+            start_tracking.setGeometry(0, 0, 0, 50)
+            start_tracking.clicked.connect(self.add_to_track)
+            grid_box.addWidget(start_tracking, 3, 1, 3, 4)
 
-                start_tracking = QPushButton('Start Tracking', self)
-                start_tracking.setGeometry(0, 0, 0, 50)
-                start_tracking.clicked.connect(self.add_to_track)
-                grid_box.addWidget(start_tracking, 3, 1, 3, 4)
-
-                v_box = QVBoxLayout()
-                v_box.addWidget(self.group_box)
-                self.setLayout(v_box)
+            v_box = QVBoxLayout()
+            v_box.addWidget(self.group_box)
+            self.setLayout(v_box)
 
         except Exception as err:
             QMessageBox.warning(self, 'error', str(err))
@@ -172,10 +201,10 @@ class ProductTraction(QDialog):
 
         try:
             product_title = self.title
-            product_actual_price = int(self.actual_price[1:])
-            product_user_price = int(self.user_price.text())
+            product_actual_price = self.actual_price[1:]
+            product_user_price = self.user_price.text()
 
-            if product_user_price >= product_actual_price:
+            if float(product_user_price) >= float(product_actual_price):
                 QMessageBox.warning(self, 'fix price', 'User price should not be greater or equal to actual price')
                 return
 
@@ -200,6 +229,7 @@ class ProductTraction(QDialog):
                             ))
             conn.commit()
             QMessageBox.about(self, 'product track', 'Product is on tracked. We will notify you when price falls down.')
+            self.hide()
 
         except Exception as err:
             QMessageBox.about(self, 'error', str(err))
