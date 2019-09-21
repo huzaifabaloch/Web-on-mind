@@ -9,10 +9,10 @@ class TrackedItem(QWidget):
         super().__init__()
 
         self.title = 'Tracked Items'
-        self.left = 400
+        self.left = 200
         self.top = 100
-        self.width = 500
-        self.height = 500
+        self.width = 900
+        self.height = 400
         self.icon = 'resources\\app.ico'
 
         self.init_window()
@@ -46,14 +46,14 @@ class TrackedItem(QWidget):
         self.table = QTableWidget(self)
         self.table.setRowCount(10)
         self.table.setColumnCount(4)
-        self.table.setFixedSize(600, 500)
+        self.table.setFixedSize(900, 400)
         self.vbox.addWidget(self.table)
         header = self.table.horizontalHeader()
         header.setVisible(False)
         vertical = self.table.verticalHeader()
         vertical.setVisible(False)
-        header.setSectionResizeMode(0, QHeaderView.Stretch)
-        header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(1, QHeaderView.Stretch)
         header.setSectionResizeMode(2, QHeaderView.ResizeToContents)
         self.table.setEditTriggers(QTableWidget.NoEditTriggers)
 

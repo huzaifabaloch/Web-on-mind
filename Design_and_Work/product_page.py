@@ -9,7 +9,7 @@ class ProductPage(QWidget):
         super().__init__()
 
         self.title = 'Product'
-        self.left = 400
+        self.left = 300
         self.top = 100
         self.width = 500
         self.height = 300
@@ -97,7 +97,7 @@ class ProductPage(QWidget):
 
             product_price = QLabel(self)
             product_price.setText('$' + self.product_details[1])
-            product_price.setGeometry(385, 50, 100, 200)
+            product_price.setGeometry(385, 50, 150, 200)
             product_price.setFont(QtGui.QFont('Arial', 20, weight=QtGui.QFont.Bold))
             product_price.setStyleSheet('color:red')
 
@@ -118,7 +118,7 @@ class ProductTraction(QDialog):
         super().__init__()
 
         self.title = 'Product Traction'
-        self.left = 400
+        self.left = 220
         self.top = 100
         self.width = 500
         self.height = 100

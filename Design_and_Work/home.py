@@ -7,6 +7,8 @@ from multiprocessing import Process
 from Design_and_Work.product_page import ProductPage
 from Design_and_Work.tracker import Tracker
 from Design_and_Work.tracked_items import TrackedItem
+from Design_and_Work.amazon_ps4 import Amazon
+from Design_and_Work.ebay_phone import Ebay
 
 
 class Home(QMainWindow):
@@ -115,12 +117,14 @@ class Home(QMainWindow):
         # Sub
         self.ps4 = QAction(QtGui.QIcon('resources\ps4.ico'), 'Playstation 4', self)
         amazon.addAction(self.ps4)
+        self.ps4.triggered.connect(self.ps4_form)
 
         # Ebay
         ebay = sites.addMenu(QtGui.QIcon('resources\ebayico.ico'), 'Ebay')
         # Sub
         self.phone = QAction(QtGui.QIcon('resources\smartphone.ico'), 'Smartphones', self)
         ebay.addAction(self.phone)
+        self.phone.triggered.connect(self.phone_form)
 
         # -----------------------------------------------------
 
@@ -165,6 +169,14 @@ class Home(QMainWindow):
         self.clear_btn = QPushButton('Clear', self)
         self.clear_btn.setGeometry(QtCore.QRect(450, 300, 200, 40))
         self.clear_btn.clicked.connect(self.clear_string)
+
+    def ps4_form(self):
+        self.ps4 = Amazon()
+
+    def phone_form(self):
+        self.phone = Ebay()
+
+
 
     def clear_string(self):
         """Clear search bar string and set back the focus."""
