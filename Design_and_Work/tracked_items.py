@@ -8,7 +8,7 @@ class TrackedItem(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.title = 'Tracked Items'
+        self.title = 'Items on Tracked'
         self.left = 200
         self.top = 100
         self.width = 900
@@ -105,6 +105,7 @@ class TrackedItem(QWidget):
             product_details = cur.fetchone()
             if product_details is not None:
                 self.product_modification = ProductModification(product_details)
+                self.hide()
             else:
                 QMessageBox.warning(self, 'error', 'Please Select on a product name to modify.')
                 return
@@ -125,6 +126,7 @@ class TrackedItem(QWidget):
             cur.execute('DELETE FROM track_tbl WHERE title = %s', (self.product_name, ))
             conn.commit()
             QMessageBox.warning(self, 'deleted', f"Product '{self.product_name}' deleted successfully")
+            self.hide()
         except:
             QMessageBox.warning(self, 'failed', 'Something went wrong while deleting.')
         finally:
@@ -229,6 +231,7 @@ class ProductModification(QWidget):
             my_cursor.execute('UPDATE track_tbl SET user_price = %s WHERE title = %s', (product_user_price, product_title, ))
             conn.commit()
             QMessageBox.about(self, 'product track', 'Product modified. We will notify you when price falls down.')
+            self.hide()
 
         except Exception as err:
             QMessageBox.about(self, 'error', str(err))
@@ -236,3 +239,81 @@ class ProductModification(QWidget):
         finally:
             my_cursor.close()
             conn.close()
+# ------------------------------------------------------------------------------------------------
+
+
+class FinishedTracking(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        self.title = 'Items Tracked'
+        self.left = 200
+        self.top = 100
+        self.width = 900
+        self.height = 400
+        self.icon = 'resources\\app.ico'
+
+    def init_window(self):
+        self.setWindowTitle(self.title)
+        self.setGeometry(self.left, self.top, self.width, self.height)
+        self.setWindowIcon(QtGui.QIcon(self.icon))
+        self.show()
+        self.create_table_and_show_data()
+        self.show()
+
+    def create_connection(self):
+        conn = mysql.connector.connect(
+            host='localhost',
+            user='root',
+            passwd='abc123',
+            database='web_on_mind'
+        )
+        return conn
+
+    def create_table_and_show_data(self):
+
+        columns = ['ID', 'Product Name', 'Actual Price', 'User Price']
+
+        conn = self.create_connection()
+        my_cursor = conn.cursor()
+        query = 'SELECT * FROM finished_tracking_tbl'
+        my_cursor.execute(query)
+        result = my_cursor.fetchall()
+
+        if result:
+            self.vbox = QVBoxLayout()
+            self.table = QTableWidget(self)
+            self.table.setRowCount(10)
+            self.table.setColumnCount(4)
+            self.table.setFixedSize(900, 400)
+            self.vbox.addWidget(self.table)
+            header = self.table.horizontalHeader()
+            header.setVisible(False)
+            vertical = self.table.verticalHeader()
+            vertical.setVisible(False)
+            header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
+            header.setSectionResizeMode(1, QHeaderView.Stretch)
+            header.setSectionResizeMode(2, QHeaderView.ResizeToContents)
+            self.table.setEditTriggers(QTableWidget.NoEditTriggers)
+            self.table.setRowCount(0)
+
+            for row_number, row_data in enumerate(result):
+                self.table.insertRow(row_number)
+                for column_number, data in enumerate(row_data):
+                    self.table.setItem(row_number, column_number, QTableWidgetItem(str(data)))
+
+            for row in range(0, 1):
+                self.table.insertRow(row)
+                for key, item in enumerate(columns):
+                    self.table.setItem(row, key, QTableWidgetItem(columns[key]))
+
+            # When any cell clicked on table, it automatically let us grab the item on that location by passing row
+            # and column as parameters in the triggered function.
+            self.table.cellClicked.connect(self.get_cell_item)
+
+        else:
+            QMessageBox.warning(self, 'Tracker', 'No Product Tracked yet!')
+            return
+
+
+
