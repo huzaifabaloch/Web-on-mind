@@ -6,7 +6,7 @@ import mysql.connector
 from multiprocessing import Process
 from Design_and_Work.product_page import ProductPage
 from Design_and_Work.tracker import Tracker
-from Design_and_Work.tracked_items import TrackedItem
+from Design_and_Work.tracked_items import TrackedItem, FinishedTracking
 from Design_and_Work.amazon_ps4 import Amazon
 from Design_and_Work.ebay_phone import Ebay
 
@@ -36,10 +36,13 @@ class Home(QMainWindow):
 
         return conn
 
-
     def show_tracked_items(self):
         self.tracked_items = TrackedItem()
         self.tracked_items.init_window()
+
+    def show_finished_items(self):
+        self.finished_items = FinishedTracking()
+        self.finished_items.init_window()
 
 
     def get_product_name(self):
@@ -133,15 +136,18 @@ class Home(QMainWindow):
         self.start_tracker = QAction(QtGui.QIcon('resources\starttracker.ico'), 'Start Tracker', self)
         self.stop_tracker = QAction(QtGui.QIcon('resources\stoptracker.ico'), 'Stop Tracker', self)
         self.track_list = QAction(QtGui.QIcon('resources\showproducts.ico'), 'Show Tracked Products', self)
+        self.finished_list = QAction(QtGui.QIcon('resources\\finished.ico'), 'Finished Tracking', self)
         # Sub
         tracker.addAction(self.start_tracker)
         tracker.addAction(self.stop_tracker)
         tracker.addAction(self.track_list)
+        tracker.addAction(self.finished_list)
         self.stop_tracker.setEnabled(False)
         # Call
         self.start_tracker.triggered.connect(self.start_process_check_price)
         self.stop_tracker.triggered.connect(self.stop_tracking_process)
         self.track_list.triggered.connect(self.show_tracked_items)
+        self.finished_list.triggered.connect(self.show_finished_items)
 
     def create_toolbar(self):
 
@@ -151,6 +157,7 @@ class Home(QMainWindow):
         toolbar.addAction(self.start_tracker)
         toolbar.addAction(self.stop_tracker)
         toolbar.addAction(self.track_list)
+        toolbar.addAction(self.finished_list)
 
     def main_layout(self):
 
@@ -175,8 +182,6 @@ class Home(QMainWindow):
 
     def phone_form(self):
         self.phone = Ebay()
-
-
 
     def clear_string(self):
         """Clear search bar string and set back the focus."""
