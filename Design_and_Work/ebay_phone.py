@@ -5,7 +5,7 @@ from Design_and_Work.product_page import ProductPage
 
 
 class Ebay(QWidget):
-    """A from with amazon's playstation 4 data."""
+    """A form with amazon's playstation 4 data."""
 
     def __init__(self):
         super().__init__()
@@ -55,6 +55,8 @@ class Ebay(QWidget):
             conn.close()
 
     def set_color_row(self, table):
+        """To change the color of rows in the table widget."""
+
         for i in range(table.rowCount()):
             if i % 2 == 0:
                 for j in range(table.columnCount()):
@@ -69,37 +71,40 @@ class Ebay(QWidget):
 
         self.vbox = QVBoxLayout()
 
-        table = QTableWidget(self)
-        table.setRowCount(100)
-        table.setColumnCount(2)
-        table.setGeometry(10, 0, 880, 600)
+        self.table = QTableWidget(self)
+        self.table.setRowCount(100)
+        self.table.setColumnCount(2)
+        self.table.setGeometry(10, 0, 880, 600)
         #table.setStyleSheet('color:black; background-color:white; font:bold; font-size: 14px')
-        horizontal_header = table.horizontalHeader()
+        horizontal_header = self.table.horizontalHeader()
         horizontal_header.setVisible(False)
-        vertical_header = table.verticalHeader()
+        vertical_header = self.table.verticalHeader()
         vertical_header.setVisible(False)
-        header = table.horizontalHeader()
+        header = self.table.horizontalHeader()
         header.setSectionResizeMode(0, QHeaderView.Stretch)
         header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
-        self.vbox.addWidget(table)
+        self.table.setEditTriggers(QTableWidget.NoEditTriggers)
+        self.vbox.addWidget(self.table)
+
+        self.table.cellClicked.connect(self.get_cell_item)
 
         data = self.gather_data()
 
         try:
-            table.setRowCount(0)
+            self.table.setRowCount(0)
             for row_number, row_data in enumerate(data):
-                table.insertRow(row_number)
+                self.table.insertRow(row_number)
                 for column_number, column_data in enumerate(row_data):
-                    table.setItem(row_number, column_number, QTableWidgetItem(str(column_data)))
+                    self.table.setItem(row_number, column_number, QTableWidgetItem(str(column_data)))
 
-            self.set_color_row(table)
+            self.set_color_row(self.table)
 
             for row in range(0, 1):
-                table.insertRow(row)
+                self.table.insertRow(row)
                 for key, item in enumerate(column_names):
-                    table.setItem(row, key, QTableWidgetItem(column_names[key]))
-                    table.item(row, key).setBackground(QtGui.QColor(176, 171, 171))
-                    table.item(row, key).setFont(QtGui.QFont('Arial', 10, weight=QtGui.QFont.Bold))
+                    self.table.setItem(row, key, QTableWidgetItem(column_names[key]))
+                    self.table.item(row, key).setBackground(QtGui.QColor(176, 171, 171))
+                    self.table.item(row, key).setFont(QtGui.QFont('Arial', 10, weight=QtGui.QFont.Bold))
 
 
         except Exception as e:
@@ -111,7 +116,7 @@ class Ebay(QWidget):
         check_product = QPushButton('See Product', self)
         check_product.setFixedHeight(40)
         check_product.setStyleSheet('background-color:#db5e5e; color:#ffffff; font: bold 12px; border: 0px;')
-        check_product.clicked.connect(self.product_page)
+        check_product.clicked.connect(self.see_product)
         self.vbox.addWidget(check_product)
         close = QPushButton('Close', self)
         close.setFixedHeight(40)
@@ -121,5 +126,27 @@ class Ebay(QWidget):
 
         self.setLayout(self.vbox)
 
-    def product_page(self):
-        self.product = ProductPage()
+    def get_cell_item(self, row, column):
+
+        print("Row %d and Column %d was clicked" % (row, column))
+        item_name = self.table.item(row, column)
+        self.product_name = item_name.text()
+
+    def see_product(self):
+
+        conn = self.create_connection()
+        cur = conn.cursor()
+        try:
+            query = 'SELECT * FROM phone_tbl WHERE name_of_phone=%s'
+            cur.execute(query, (self.product_name, ))
+            product_details = cur.fetchone()
+            if product_details is not None:
+                self.product_page = ProductPage(product_details, 2)
+            else:
+                QMessageBox.warning(self, 'error', 'Please Select on a product name to modify.')
+                return
+        except:
+            QMessageBox.warning(self, 'error', 'Please Select on a product name to modify.')
+        finally:
+            cur.close()
+            conn.close()
