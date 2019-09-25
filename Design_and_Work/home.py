@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow, QLineEdit, QCompleter, QApplication, QAction, QPushButton
+from PyQt5.QtWidgets import QMainWindow, QLineEdit, QCompleter, QApplication, QAction, QPushButton, QLabel
 from PyQt5 import QtGui
 from PyQt5 import QtCore
 import sys
@@ -78,6 +78,7 @@ class Home(QMainWindow):
     def init_window(self):
         """Window with default components after clicked.connect."""
 
+        self.setFixedSize(900, 400)
         self.setWindowTitle(self.title)
         self.setWindowIcon(QtGui.QIcon(self.icon))
         self.setGeometry(self.left, self.top, self.width, self.height)
@@ -85,6 +86,9 @@ class Home(QMainWindow):
         self.create_toolbar()
         self.main_layout()
         self.get_product_name()
+
+
+
         self.show()
 
     # PROCESS 2
@@ -171,10 +175,12 @@ class Home(QMainWindow):
 
         self.search_btn = QPushButton('Search', self)
         self.search_btn.setGeometry(QtCore.QRect(250, 300, 200, 40))
+        self.search_btn.setStyleSheet('background-color: #1c1d21; color: #ffffff; font-size: 14px; border-radius: 10px')
         self.search_btn.clicked.connect(self.product_page)
 
         self.clear_btn = QPushButton('Clear', self)
         self.clear_btn.setGeometry(QtCore.QRect(450, 300, 200, 40))
+        self.clear_btn.setStyleSheet('background-color: #1c1d21; color: #ffffff; font-size: 14px; border-radius: 10px')
         self.clear_btn.clicked.connect(self.clear_string)
 
     def ps4_form(self):

@@ -22,7 +22,6 @@ class TrackedItem(QWidget):
         self.setGeometry(self.left, self.top, self.width, self.height)
         self.setWindowIcon(QtGui.QIcon(self.icon))
         self.create_table_and_show_data()
-        self.create_buttons()
         self.setLayout(self.vbox)
 
         self.show()
@@ -37,57 +36,101 @@ class TrackedItem(QWidget):
 
         return conn
 
+    def set_color_row(self, table):
+        """To change the color of rows in the table widget."""
+
+        for i in range(table.rowCount()):
+            if i % 2 == 0:
+                for j in range(table.columnCount()):
+                    table.item(i, j).setBackground(QtGui.QColor(252, 252, 252))
+            else:
+                for j in range(table.columnCount()):
+                    table.item(i, j).setBackground(QtGui.QColor(232, 225, 225))
+
     def create_table_and_show_data(self):
-
-        self.vbox = QVBoxLayout()
-
-        columns = ['ID', 'Product Name', 'Actual Price', 'User Price']
-
-        self.table = QTableWidget(self)
-        self.table.setRowCount(10)
-        self.table.setColumnCount(4)
-        self.table.setFixedSize(900, 400)
-        self.vbox.addWidget(self.table)
-        header = self.table.horizontalHeader()
-        header.setVisible(False)
-        vertical = self.table.verticalHeader()
-        vertical.setVisible(False)
-        header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(1, QHeaderView.Stretch)
-        header.setSectionResizeMode(2, QHeaderView.ResizeToContents)
-        self.table.setEditTriggers(QTableWidget.NoEditTriggers)
 
         conn = self.create_connection()
         my_cursor = conn.cursor()
-        query = 'SELECT * FROM track_tbl'
-        my_cursor.execute(query)
-        result = my_cursor.fetchall()
-        self.table.setRowCount(0)
+        columns = ['ID', 'Product Name', 'Actual Price', 'User Price']
 
-        for row_number, row_data in enumerate(result):
-            self.table.insertRow(row_number)
-            for column_number, data in enumerate(row_data):
-                self.table.setItem(row_number, column_number, QTableWidgetItem(str(data)))
+        try:
+            self.setFixedSize(920, 500)
+            self.vbox = QVBoxLayout()
+            query = 'SELECT * FROM track_tbl'
+            my_cursor.execute(query)
+            result = my_cursor.fetchall()
 
-        for row in range(0, 1):
-            self.table.insertRow(row)
-            for key, item in enumerate(columns):
-                self.table.setItem(row, key, QTableWidgetItem(columns[key]))
+            if result:
 
-        # When any cell clicked on table, it automatically let us grab the item on that location by passing row
-        # and column as parameters in the triggered function.
-        self.table.cellClicked.connect(self.get_cell_item)
+                self.table = QTableWidget(self)
+                self.table.setRowCount(10)
+                self.table.setColumnCount(4)
+                self.table.setFixedSize(900, 400)
+                self.vbox.addWidget(self.table)
+                header = self.table.horizontalHeader()
+                header.setVisible(False)
+                vertical = self.table.verticalHeader()
+                vertical.setVisible(False)
+                header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
+                header.setSectionResizeMode(1, QHeaderView.Stretch)
+                header.setSectionResizeMode(2, QHeaderView.ResizeToContents)
+                self.table.setEditTriggers(QTableWidget.NoEditTriggers)
+
+                self.create_buttons()
+
+                self.table.setRowCount(0)
+
+                for row_number, row_data in enumerate(result):
+                    self.table.insertRow(row_number)
+                    for column_number, data in enumerate(row_data):
+                        self.table.setItem(row_number, column_number, QTableWidgetItem(str(data)))
+                self.set_color_row(self.table)
+
+                for row in range(0, 1):
+                    self.table.insertRow(row)
+                    for key, item in enumerate(columns):
+                        self.table.setItem(row, key, QTableWidgetItem(columns[key]))
+
+                # When any cell clicked on table, it automatically let us grab the item on that location by passing row
+                # and column as parameters in the triggered function.
+                self.table.cellClicked.connect(self.get_cell_item)
+
+            else:
+                self.setFixedSize(900, 400)
+                tracked_product_unavailable = QLabel('You have not set any product on track. Start adding by searching your favourite product ', self)
+                tracked_product_unavailable.setFont(QtGui.QFont('Arial', 12, weight=QtGui.QFont.Bold))
+                tracked_product_unavailable.move(120, 100)
+                tracked_product_unavailable.setFixedSize(900, 200)
+
+                product_unavailable_image = QtGui.QPixmap('resources\product_unavailable.png')
+                image_lbl = QLabel(self)
+                image_lbl.setPixmap(product_unavailable_image)
+                image_lbl.move(380, -100)
+                image_lbl.setFixedSize(400, 400)
+
+                ok_btn = QPushButton('Okay', self)
+                ok_btn.move(350, 300)
+                ok_btn.setFixedSize(200, 50)
+                ok_btn.setStyleSheet('background-color: #1c1d21; color: #ffffff; font-size: 14px; border-radius: 10px')
+                ok_btn.clicked.connect(self.hide)
+
+        except Exception as e:
+            print(str(e))
 
     def create_buttons(self):
 
         modify_btn = QPushButton('Modify Price', self)
         modify_btn.setFont(QtGui.QFont('Calibri', 12))
         modify_btn.clicked.connect(self.modify)
+        modify_btn.setStyleSheet('background-color: #1c1d21; color: #ffffff; font-size: 14px; border-radius: 10px')
+        modify_btn.setFixedSize(900, 30)
         self.vbox.addWidget(modify_btn)
 
         delete_btn = QPushButton('Remove Product', self)
         delete_btn.setFont(QtGui.QFont('Calibri', 12))
         delete_btn.clicked.connect(self.delete)
+        delete_btn.setStyleSheet('background-color: #1c1d21; color: #ffffff; font-size: 14px; border-radius: 10px')
+        delete_btn.setFixedSize(900, 30)
         self.vbox.addWidget(delete_btn)
 
     def get_cell_item(self, row, column):
@@ -122,7 +165,6 @@ class TrackedItem(QWidget):
         conn = self.create_connection()
         cur = conn.cursor()
         try:
-            query = 'DELETE FROM track_tbl WHERE title = %s'
             cur.execute('DELETE FROM track_tbl WHERE title = %s', (self.product_name, ))
             conn.commit()
             QMessageBox.warning(self, 'deleted', f"Product '{self.product_name}' deleted successfully")
@@ -257,9 +299,19 @@ class FinishedTracking(QWidget):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
         self.setWindowIcon(QtGui.QIcon(self.icon))
-        self.show()
         self.create_table_and_show_data()
         self.show()
+
+    def set_color_row(self, table):
+        """To change the color of rows in the table widget."""
+
+        for i in range(table.rowCount()):
+            if i % 2 == 0:
+                for j in range(table.columnCount()):
+                    table.item(i, j).setBackground(QtGui.QColor(252, 252, 252))
+            else:
+                for j in range(table.columnCount()):
+                    table.item(i, j).setBackground(QtGui.QColor(232, 225, 225))
 
     def create_connection(self):
         conn = mysql.connector.connect(
@@ -279,14 +331,13 @@ class FinishedTracking(QWidget):
         query = 'SELECT * FROM finished_tracking_tbl'
         my_cursor.execute(query)
         result = my_cursor.fetchall()
-
+        print(result)
         if result:
-            self.vbox = QVBoxLayout()
+            self.setFixedSize(900, 400)
             self.table = QTableWidget(self)
             self.table.setRowCount(10)
             self.table.setColumnCount(4)
-            self.table.setFixedSize(900, 400)
-            self.vbox.addWidget(self.table)
+            self.table.setFixedSize(900, 350)
             header = self.table.horizontalHeader()
             header.setVisible(False)
             vertical = self.table.verticalHeader()
@@ -297,10 +348,18 @@ class FinishedTracking(QWidget):
             self.table.setEditTriggers(QTableWidget.NoEditTriggers)
             self.table.setRowCount(0)
 
+            empty_list_btn = QPushButton('Click here to empty the list', self)
+            empty_list_btn.move(0, 350)
+            empty_list_btn.setFixedSize(900, 50)
+            empty_list_btn.setStyleSheet('background-color: #1c1d21; color: #ffffff; font-size: 14px')
+            empty_list_btn.clicked.connect(self.delete_finished_ones)
+
             for row_number, row_data in enumerate(result):
                 self.table.insertRow(row_number)
                 for column_number, data in enumerate(row_data):
                     self.table.setItem(row_number, column_number, QTableWidgetItem(str(data)))
+
+            self.set_color_row(self.table)
 
             for row in range(0, 1):
                 self.table.insertRow(row)
@@ -309,11 +368,42 @@ class FinishedTracking(QWidget):
 
             # When any cell clicked on table, it automatically let us grab the item on that location by passing row
             # and column as parameters in the triggered function.
-            self.table.cellClicked.connect(self.get_cell_item)
+            #self.table.cellClicked.connect(self.get_cell_item)
 
         else:
-            QMessageBox.warning(self, 'Tracker', 'No Product Tracked yet!')
+            self.setFixedSize(900, 400)
+            tracked_product_unavailable = QLabel('Currently, no product has been tracked. The moment any product get tracked, it will appear here.', self)
+            tracked_product_unavailable.setFont(QtGui.QFont('Arial', 12, weight=QtGui.QFont.Bold))
+            tracked_product_unavailable.move(100, 180)
+
+            product_unavailable_image = QtGui.QPixmap('resources\product_unavailable.png')
+            image_lbl = QLabel(self)
+            image_lbl.setPixmap(product_unavailable_image)
+            image_lbl.move(380, 30)
+
+            ok_btn = QPushButton('Okay', self)
+            ok_btn.move(350, 300)
+            ok_btn.setFixedSize(200, 50)
+            ok_btn.setStyleSheet('background-color: #1c1d21; color: #ffffff; font-size: 14px; border-radius: 10px')
+            ok_btn.clicked.connect(self.hide)
+
+    def delete_finished_ones(self):
+        """Remove the products that were tracked and stored in finished form."""
+
+        conn = self.create_connection()
+        cur = conn.cursor()
+        try:
+            reply = QMessageBox.question(self, 'Delete', 'Are you sure, Do you want to empty the list', QMessageBox.Yes | QMessageBox.No)
+            if reply == QMessageBox.Yes:
+                cur.execute('DELETE FROM finished_tracking_tbl')
+                conn.commit()
+                self.hide()
+                QMessageBox.warning(self, 'Delete', 'All Products removed from the list.', QMessageBox.Ok)
+            else:
+                return
+        except:
+            QMessageBox.warning(self, 'error', 'Something went wrong!')
             return
-
-
-
+        finally:
+            cur.close()
+            conn.close()

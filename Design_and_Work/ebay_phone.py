@@ -106,7 +106,6 @@ class Ebay(QWidget):
                     self.table.item(row, key).setBackground(QtGui.QColor(176, 171, 171))
                     self.table.item(row, key).setFont(QtGui.QFont('Arial', 10, weight=QtGui.QFont.Bold))
 
-
         except Exception as e:
             QMessageBox.warning(self, 'error', 'Something went wrong!' + str(e))
             return

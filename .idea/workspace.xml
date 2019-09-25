@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04cdfe40-d604-4f09-a65a-f4de498efe35" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Design_and_Work/resources/finished.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Design_and_Work/resources/error.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Design_and_Work/resources/green.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Design_and_Work/resources/green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Design_and_Work/resources/product_unavailable.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Design_and_Work/amazon_ps4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Design_and_Work/amazon_ps4.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Design_and_Work/ebay_phone.py" beforeDir="false" afterPath="$PROJECT_DIR$/Design_and_Work/ebay_phone.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Design_and_Work/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/Design_and_Work/home.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Design_and_Work/tracked_items.py" beforeDir="false" afterPath="$PROJECT_DIR$/Design_and_Work/tracked_items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Design_and_Work/tracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/Design_and_Work/tracker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +23,7 @@
     <session id="2040578868">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="31" />
+          <entry key="project.closed" value="33" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.20" value="2" />
@@ -31,6 +34,7 @@
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.33" value="2" />
           <entry key="project.open.time.34" value="1" />
@@ -45,8 +49,9 @@
           <entry key="project.open.time.63" value="1" />
           <entry key="project.open.time.76" value="1" />
           <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.86" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="31" />
+          <entry key="project.opened" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -55,7 +60,7 @@
           <entry key="html" value="1" />
           <entry key="ico" value="1" />
           <entry key="json" value="1" />
-          <entry key="py" value="72" />
+          <entry key="py" value="80" />
           <entry key="pyi" value="2" />
         </counts>
       </usages-collector>
@@ -65,32 +70,31 @@
           <entry key="Image" value="1" />
           <entry key="JSON" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="72" />
+          <entry key="Python" value="80" />
           <entry key="PythonStub" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="70022" />
+          <entry key="py" value="77263" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="70022" />
+          <entry key="Python" value="77263" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Design_and_Work/home.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
+            <state relative-caret-position="280">
+              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
               <folding>
-                <element signature="e#0#98#0" expanded="true" />
-                <marker date="1569154120723" expanded="true" signature="1212:1301" ph="..." />
+                <element signature="e#0#106#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Design_and_Work/product_page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2120">
-              <caret line="121" column="22" selection-start-line="121" selection-start-column="22" selection-end-line="121" selection-end-column="22" />
+            <state relative-caret-position="381">
+              <caret line="217" column="22" selection-start-line="217" selection-start-column="22" selection-end-line="217" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -108,24 +112,42 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Design_and_Work/tracker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="111" column="39" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
+            <state relative-caret-position="1940">
+              <caret line="104" column="31" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="31" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
+                <marker date="1569363762724" expanded="true" signature="8053:8909" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Design_and_Work/tracked_items.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="296" column="43" selection-start-line="296" selection-start-column="43" selection-end-line="296" selection-end-column="43" />
+            <state relative-caret-position="261">
+              <caret line="113" column="119" lean-forward="true" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="119" />
               <folding>
-                <marker date="1569156476125" expanded="true" signature="8743:11388" ph="..." />
-                <marker date="1569156476125" expanded="true" signature="9277:9286" ph="..." />
+                <element signature="e#0#162#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebSpider/WebSpider/spiders/ps4bot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="76" column="40" selection-start-line="76" selection-start-column="40" selection-end-line="76" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebSpider/WebSpider/pipelines.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -133,8 +155,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Design_and_Work/amazon_ps4.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+            <state relative-caret-position="220">
+              <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
               <folding>
                 <element signature="e#0#119#0" expanded="true" />
                 <marker date="1569152051456" expanded="true" signature="1640:1645" ph="..." />
@@ -147,11 +169,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Design_and_Work/ebay_phone.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="2080">
+              <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
               <folding>
                 <element signature="e#0#119#0" expanded="true" />
-                <marker date="1569152054883" expanded="true" signature="4551:4561" ph="..." />
+                <marker date="1569358863337" expanded="true" signature="4550:4560" ph="..." />
               </folding>
             </state>
           </provider>
@@ -178,15 +200,15 @@
         <option value="$PROJECT_DIR$/Design_and_Work/start_process.py" />
         <option value="$PROJECT_DIR$/WebSpider/WebSpider/items.py" />
         <option value="$PROJECT_DIR$/WebSpider/WebSpider/spiders/test.html" />
-        <option value="$PROJECT_DIR$/WebSpider/WebSpider/pipelines.py" />
         <option value="$PROJECT_DIR$/WebSpider/WebSpider/spiders/phonebot.py" />
         <option value="$PROJECT_DIR$/Design_and_Work/config.py" />
-        <option value="$PROJECT_DIR$/Design_and_Work/tracker.py" />
         <option value="$PROJECT_DIR$/Design_and_Work/product_page.py" />
         <option value="$PROJECT_DIR$/Design_and_Work/amazon_ps4.py" />
-        <option value="$PROJECT_DIR$/Design_and_Work/ebay_phone.py" />
-        <option value="$PROJECT_DIR$/Design_and_Work/home.py" />
         <option value="$PROJECT_DIR$/Design_and_Work/tracked_items.py" />
+        <option value="$PROJECT_DIR$/Design_and_Work/ebay_phone.py" />
+        <option value="$PROJECT_DIR$/Design_and_Work/tracker.py" />
+        <option value="$PROJECT_DIR$/Design_and_Work/home.py" />
+        <option value="$PROJECT_DIR$/WebSpider/WebSpider/pipelines.py" />
       </list>
     </option>
   </component>
@@ -202,6 +224,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -209,16 +232,10 @@
               <item name="Web on mind" type="b2602c69:ProjectViewProjectNode" />
               <item name="Web on mind" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Web on mind" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Web on mind" type="462c0819:PsiDirectoryNode" />
-              <item name="Design_and_Work" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -407,6 +424,17 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Design_and_Work/tracker.py</url>
+          <line>187</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/scrapy/spiders/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -489,24 +517,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebSpider/WebSpider/spiders/ps4bot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebSpider/WebSpider/spiders/phonebot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebSpider/WebSpider/pipelines.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
         </state>
       </provider>
     </entry>
@@ -517,13 +531,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Design_and_Work/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Design_and_Work/start_process.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
@@ -531,21 +538,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Design_and_Work/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Design_and_Work/tracker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1940">
+          <caret line="104" column="31" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <marker date="1569363762724" expanded="true" signature="8053:8909" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Design_and_Work/ebay_phone.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="2080">
+          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
           <folding>
             <element signature="e#0#119#0" expanded="true" />
-            <marker date="1569152054883" expanded="true" signature="4551:4561" ph="..." />
+            <marker date="1569358863337" expanded="true" signature="4550:4560" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Design_and_Work/tracked_items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="113" column="119" lean-forward="true" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="119" />
+          <folding>
+            <element signature="e#0#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Design_and_Work/product_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="217" column="22" selection-start-line="217" selection-start-column="22" selection-end-line="217" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebSpider/WebSpider/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Design_and_Work/amazon_ps4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        <state relative-caret-position="220">
+          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
           <folding>
             <element signature="e#0#119#0" expanded="true" />
             <marker date="1569152051456" expanded="true" signature="1640:1645" ph="..." />
@@ -554,41 +603,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Design_and_Work/tracker.py">
+    <entry file="file://$PROJECT_DIR$/WebSpider/WebSpider/spiders/ps4bot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="111" column="39" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Design_and_Work/product_page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2120">
-          <caret line="121" column="22" selection-start-line="121" selection-start-column="22" selection-end-line="121" selection-end-column="22" />
+        <state relative-caret-position="381">
+          <caret line="76" column="40" selection-start-line="76" selection-start-column="40" selection-end-line="76" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Design_and_Work/home.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
+        <state relative-caret-position="280">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
           <folding>
-            <element signature="e#0#98#0" expanded="true" />
-            <marker date="1569154120723" expanded="true" signature="1212:1301" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Design_and_Work/tracked_items.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="296" column="43" selection-start-line="296" selection-start-column="43" selection-end-line="296" selection-end-column="43" />
-          <folding>
-            <marker date="1569156476125" expanded="true" signature="8743:11388" ph="..." />
-            <marker date="1569156476125" expanded="true" signature="9277:9286" ph="..." />
+            <element signature="e#0#106#0" expanded="true" />
           </folding>
         </state>
       </provider>

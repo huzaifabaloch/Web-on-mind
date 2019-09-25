@@ -3,6 +3,7 @@ import time
 import os
 import tkinter.messagebox
 from tkinter import *
+from PIL import ImageTk, Image
 import smtplib
 import Design_and_Work.config as credential
 
@@ -43,7 +44,7 @@ class Tracker:
         print(os.getcwd())
         os.chdir('C:\\Users\sunny ahmed\Desktop\Web on mind\WebSpider')
         print(os.getcwd())
-        os.system('scrapy crawl ps4bot && scrapy crawl shoebot')
+        os.system('scrapy crawl ps4bot && scrapy crawl phonebot')
 
     def gather_data_from_local_server(self):
         """
@@ -101,9 +102,10 @@ class Tracker:
         """Check the price if it got lowered."""
 
         while True:
+            self.run_crawlers()
             user_tracked_items = self.gather_tracking_data()
             server_items = self.gather_data_from_local_server()
-            time.sleep(2)
+            time.sleep(5)
             """
             Selecting each product one by one from tracked list and finding it in the server list,
             if get matched then we start checking the price.
@@ -117,8 +119,11 @@ class Tracker:
                         if int(float(each_item[1])) < int(float(each_tracked_item[1][0])):
                             if int(float(each_item[1])) <= int(float(each_tracked_item[1][1])):
                                 print('YES')
-                                # self.send_email()
+                                self.send_email(each_tracked_item[0], each_item[1])
+                                self.track_list_to_finished_list(each_tracked_item[0], each_tracked_item[1][0], each_tracked_item[1][1])
+                                self.delete_from_track_list(each_tracked_item[0])
                                 item_found = True
+                                time.sleep(5)
                                 break
                         else:
                             item_found = True
@@ -126,6 +131,7 @@ class Tracker:
 
                 if item_found is False:
                     self.product_deleted_prompt(each_tracked_item[0])
+            time.sleep(60)
 
     def product_deleted_prompt(self, product_name):
         """
@@ -166,15 +172,83 @@ class Tracker:
         conn.commit()
         conn.close()
 
-    def send_email(self):
+    def send_email(self, product_name, product_price):
+
+        standard_message = """The following product '{}' with the target price '{}' has been dropped.
+        Go and check it.""".format(product_name, product_price)
+        msg = 'Subject: {}\n\n{}'.format('Price Dropped - Web on Mind', standard_message)
         try:
             server = smtplib.SMTP('smtp.gmail.com:587')
             server.ehlo()
             server.starttls()
             server.login(credential.EMAIL_ADDRESS, credential.PASSWORD)
-            message = ''
-            server.sendmail(credential.EMAIL_ADDRESS, credential.EMAIL_ADDRESS, message)
+            server.sendmail(credential.EMAIL_ADDRESS, credential.EMAIL_ADDRESS, msg)
             server.quit()
+        except Exception as e:
+            self.build_dialog('An internet connection dropped while sending email.' + str(e))
+            return
+
+    def delete_from_track_list(self, product_name):
+        """If product got tracked, then move the product details to finished tracking list."""
+
+        conn = self.create_connection()
+        cur = conn.cursor()
+        try:
+            query = 'DELETE FROM track_tbl WHERE title = %s'
+            cur.execute(query, (product_name, ))
+            conn.commit()
+            print('DELETING')
         except:
-            print('Failed')
+            pass
+        finally:
+            cur.close()
+            conn.close()
+
+    def track_list_to_finished_list(self, product_name, actual_price, user_price):
+        """To move product from track list to finished tracking list."""
+
+        conn = self.create_connection()
+        cur = conn.cursor()
+        try:
+            cur.execute('SELECT id FROM finished_tracking_tbl ORDER BY id DESC LIMIT 1')
+            record_no = cur.fetchone()
+            if record_no is None:
+                record_no = 1
+            else:
+                record_no = record_no[0] + 1
+
+            print(record_no)
+            print(record_no, product_name, actual_price, user_price)
+            query = 'INSERT INTO finished_tracking_tbl VALUES (%s, %s, %s, %s)'
+            cur.execute(query, (record_no, product_name, actual_price, user_price,))
+            conn.commit()
+            print('Added')
+        except Exception as e:
+            print(str(e))
+        finally:
+            cur.close()
+            conn.close()
+
+    def build_dialog(self, msg):
+
+        dialog = Tk()
+        dialog.title('error')
+        dialog.geometry('400x50+500+200')
+        dialog.resizable(False, False)
+        var = StringVar()
+        var.set(msg)
+        message = Label(dialog, textvariable=var)
+
+        #image = Image.open('resources\error.ico')
+        #image = image.resize((25, 25), Image.ANTIALIAS) ## The (250, 250) is (height, width)
+        #pic = ImageTk.PhotoImage(image)
+        #lbl = Label(dialog, image=pic)
+
+        #lbl.pack(side=TOP)
+        message.pack(side=TOP)
+        dialog.mainloop()
+
+
+
+
 
